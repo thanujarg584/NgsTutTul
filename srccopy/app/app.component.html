@@ -1,0 +1,26 @@
+<cart-kom *ngFor = "let CartVar of CartAyVar"
+[title] = "CartVar.TtlVak"
+[detail]="CartVar.DtlVak"
+[cost] = "CartVar.CstVak"
+(UpdQtyVaf) = "UpdTotQtyVafFnc($event)"
+(UpdTotVaf) = "UpdTotVafFnc($event)"></cart-kom>
+
+
+
+<div class="DsplyFlxCls" >
+
+    <p>
+        Total Quantity :    {{TotQtyVar}}
+    </p>
+
+    <p>
+        Total UC : {{TotUC}}
+    </p>
+
+    <p>
+        Total Cost : {{TotCost}}
+    </p>
+
+</div>
+
+<!-- <list-crud-kom></list-crud-kom> -->

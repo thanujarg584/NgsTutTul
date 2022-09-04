@@ -1,0 +1,37 @@
+<div class="DspFlxCls">
+    <div>
+        <h1>{{TtlVar}}</h1>
+        <h3>{{DtlVar}}</h3>
+    </div>
+    <div>
+        <button (click)="ChjQtyFnc(1)">+</button>
+        <input type="number" placeholder={{QtyVar}} max="10" class="QtyIptCls" #newItem>
+        <button (click)="ChjQtyFnc(-1)">-</button>
+    </div>
+    
+        <p>&pound;{{MrpVar}}
+            <i class="fas fa-shopping-cart" style="color: green; font-size:24px"></i>
+            Unit cost : &pound;{{MrpVar}}
+        </p>
+        <a (click)="IknTglFnc()">
+            <fa-icon [icon]="FasIknVar" style="color: red; font-size:24px"></fa-icon>
+        </a>
+        <p>
+            Total cost : &pound;{{MrpVar * QtyVar}}
+        </p>
+</div>
+
+
+
+
+<!-- <a (click)="ClickFnc()">
+    <i [ngClass]="{'fa-regular fa-heart':LykVar;'fa-regular fa-heart':!LykVar}" style="color: red; font-size:24px"></i>
+</a> -->
+<!-- <ng-template #like class="fa-solid fa-heart" style="color: red; font-size:24px"></ng-template>
+<ng-template #unlike class="fa-regular fa-heart" style="color: red; font-size:24px"></ng-template> -->
+
+<!-- *ngIf="ToggleVar;then like else unlike" -->
+
+
+<!-- <i class="{{iconClsName}}" (click)="iconClicked()" style="color: red; font-size:24px"></i> -->
+

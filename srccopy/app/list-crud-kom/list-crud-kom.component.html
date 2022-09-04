@@ -1,0 +1,21 @@
+<h1>List CRUD</h1>
+
+<form>
+    <input type="text" placeholder="Add item" [(ngModel)]="fruit" name="FrtIpt" id="FrtUid">
+    <button (click)="EdtIdxVar==-1 ? AddBtnFnc() : UpdBtnFnc()">{{EdtIdxVar ==-1 ? 'Add':'Update'}}</button>
+    <button (click)="SortFnc()"> 
+        <fa-icon [icon]="ArwIknVar" style="color: black; font-size:14px"></fa-icon>
+    </button>
+</form>
+
+<!-- <i class="fa-solid fa-arrow-up"></i> -->
+
+<ol>
+    <li *ngFor="let ItmVar of NamAryVar;let IdxVar=index" class="LysItmCls">
+        {{ItmVar}}
+        <b class="LysBtnCls">
+            <button (click)="EdtBtnFnc(IdxVar)">[==]</button>&nbsp;
+            <button (click)="DelBtnFn(IdxVar)">[X]</button>
+        </b>
+    </li>
+</ol>

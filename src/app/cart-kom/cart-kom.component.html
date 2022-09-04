@@ -1,0 +1,35 @@
+<form action="">
+    Food : <input type="text" placeholder="Enter food" name="FoodIptVar" [(ngModel)]="FoodIptVar"><br><br>
+    Details : <input type="text" placeholder="Enter details" name="DtIptVar" [(ngModel)]="DtIptVar"><br><br>
+    Cost : <input type="text" name="CstIptVar" [(ngModel)]="CstIptVar"><br><br>
+    <button (click)="EdtIdxVar == -1 ? SubFnc() : UpdFnc()">{{EdtIdxVar == -1 ? 'Add' : 'Update'}}</button>
+</form>
+
+
+<cart-item-kom *ngFor = "let CartVar of CartAyVar;let IdxVar=index"
+[title] = "CartVar.TtlVak"
+[detail]="CartVar.DtlVak"
+[cost] = "CartVar.CstVak"
+(UpdQtyVaf) = "UpdTotQtyVafFnc($event)"
+(UpdTotVaf) = "UpdTotVafFnc($event)"
+(DelVaf)="DelVafFnc(IdxVar)"
+(UpdVaf)="UpdVafFnc(IdxVar)"></cart-item-kom>
+
+
+<div class="DsplyFlxCls" >
+
+    <p>
+        Total Quantity :    {{TotQtyVar}}
+    </p>
+
+    <p>
+        Total Unit Cost : {{TotUC}}
+    </p>
+
+    <p>
+        Total Cost : {{TotCost}}
+    </p>
+
+</div>
+
+<!-- <list-crud-kom></list-crud-kom> -->
