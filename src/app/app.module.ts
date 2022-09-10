@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { NewsKomComponent } from './news-kom/news-kom.component';
@@ -19,10 +20,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 const AppNavNryVar: Routes = [
   { path: '', component: HomeKomComponent },
   { path: 'prod', component: ProdKomComponent },
-  { path: 'prod/:name', component: ProdDetailKomComponent},
-  { path: 'cart', component: CartKomComponent},
-  { path: 'list', component: ListCrudKomComponent},
-  { path: 'add', component: ProdAddKomComponent}
+  { path: 'prod/:name', component: ProdDetailKomComponent },
+  { path: 'cart', component: CartKomComponent },
+  { path: 'list', component: ListCrudKomComponent },
+  { path: 'add', component: ProdAddKomComponent }
 ];
 
 @NgModule({
@@ -35,18 +36,19 @@ const AppNavNryVar: Routes = [
     CartKomComponent,
     HomeKomComponent,
     ProdDetailKomComponent,
-    ProdAddKomComponent
+    ProdAddKomComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     FontAwesomeModule,
+    HttpClientModule,
     RouterModule.forRoot(AppNavNryVar),
     NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent],
-  schemas:[
+  schemas: [
     NO_ERRORS_SCHEMA
   ]
 })

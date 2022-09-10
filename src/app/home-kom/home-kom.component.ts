@@ -5,11 +5,13 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './home-kom.component.html',
   styleUrls: ['./home-kom.component.scss']
 })
-export class HomeKomComponent implements OnInit {
+export class HomeKomComponent implements OnInit
+{
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void
+  {
   }
 
 }

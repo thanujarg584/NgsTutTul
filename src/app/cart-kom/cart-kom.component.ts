@@ -5,8 +5,8 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './cart-kom.component.html',
   styleUrls: ['./cart-kom.component.scss']
 })
-export class CartKomComponent implements OnInit {
-
+export class CartKomComponent implements OnInit
+{
   CartAyVar = [
     {
       TtlVak: 'Chicken Pizza',
@@ -23,23 +23,23 @@ export class CartKomComponent implements OnInit {
       DtlVak: 'Special Chicken Shawarma',
       CstVak: 90
     }
-
   ]
 
   TotQtyVar = 0
   TotCost = 0
   TotUC = 0
 
-  FoodIptVar=''
-  DtIptVar=''
-  CstIptVar=0
+  FoodIptVar = ''
+  DtIptVar = ''
+  CstIptVar = 0
 
-  EdtIdxVar=-1
+  EdtIdxVar = -1
 
-  UpdValFnc(){
-    this.TotUC = this.CartAyVar.reduce((SumVar,ItmVar) => SumVar+ ItmVar.CstVak,0)
+  UpdValFnc()
+  {
+    this.TotUC = this.CartAyVar.reduce((SumVar, ItmVar) => SumVar + ItmVar.CstVak, 0)
     this.TotQtyVar = this.CartAyVar.length
-    this.TotCost = this.CartAyVar.reduce((SumVar,ItmVar) => SumVar+ ItmVar.CstVak,0)
+    this.TotCost = this.CartAyVar.reduce((SumVar, ItmVar) => SumVar + ItmVar.CstVak, 0)
   }
 
   ngOnInit()
@@ -57,16 +57,17 @@ export class CartKomComponent implements OnInit {
     this.TotCost += EventVar
   }
 
-  UpdTotVafFnc(EventVar:number)
+  UpdTotVafFnc(EventVar: number)
   {
     this.TotCost += EventVar
   }
 
-  SubFnc(){
+  SubFnc()
+  {
     this.CartAyVar.push({
-      TtlVak:this.FoodIptVar ,
+      TtlVak: this.FoodIptVar,
       DtlVak: this.DtIptVar,
-      CstVak:this.CstIptVar
+      CstVak: this.CstIptVar
     })
     this.FoodIptVar = ''
     this.DtIptVar = ''
@@ -75,30 +76,29 @@ export class CartKomComponent implements OnInit {
     this.UpdValFnc()
   }
 
-  DelVafFnc(IdxPsgVar:number){
-    this.CartAyVar.splice(IdxPsgVar,1)
+  DelVafFnc(IdxPsgVar: number)
+  {
+    this.CartAyVar.splice(IdxPsgVar, 1)
 
     this.UpdValFnc()
   }
 
-  UpdVafFnc(IdxPsgVar:number){
+  UpdVafFnc(IdxPsgVar: number)
+  {
     this.FoodIptVar = this.CartAyVar[IdxPsgVar].TtlVak
     this.DtIptVar = this.CartAyVar[IdxPsgVar].DtlVak
     this.CstIptVar = this.CartAyVar[IdxPsgVar].CstVak
 
     this.EdtIdxVar = IdxPsgVar
-    
-  
   }
 
-  UpdFnc(){
-    this.CartAyVar[this.EdtIdxVar].TtlVak=this.FoodIptVar
-    this.CartAyVar[this.EdtIdxVar].DtlVak=this.DtIptVar
-    this.CartAyVar[this.EdtIdxVar].CstVak=this.CstIptVar
+  UpdFnc()
+  {
+    this.CartAyVar[this.EdtIdxVar].TtlVak = this.FoodIptVar
+    this.CartAyVar[this.EdtIdxVar].DtlVak = this.DtIptVar
+    this.CartAyVar[this.EdtIdxVar].CstVak = this.CstIptVar
 
-    this.EdtIdxVar=-1
+    this.EdtIdxVar = -1
     this.UpdValFnc()
   }
-
-
 }

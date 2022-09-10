@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
 @Component({
@@ -26,15 +26,15 @@ export class ListCrudKomComponent implements OnInit
   {
     if (this.CheckValidFnc())
     {
-    this.NamAryVar.push(this.NamIptVar)
-    this.NamIptVar = ''
+      this.NamAryVar.push(this.NamIptVar)
+      this.NamIptVar = ''
     }
   }
 
   EdtBtnFnc(itm: number)
   {
-      this.NamIptVar = this.NamAryVar[itm]
-      this.EditIdxvar = itm
+    this.NamIptVar = this.NamAryVar[itm]
+    this.EditIdxvar = itm
   }
 
   UpdBtnFnc()
@@ -49,13 +49,13 @@ export class ListCrudKomComponent implements OnInit
 
   DltBtnFnc(itm: number)
   {
-    if(confirm("Are you sure you want to delete?"))
-      this.NamAryVar.splice(itm,1)
+    if (confirm("Are you sure you want to delete?"))
+      this.NamAryVar.splice(itm, 1)
   }
 
   SortAryFnc()
   {
-    if(this.NamFasIknVar==faArrowUp)
+    if (this.NamFasIknVar == faArrowUp)
     {
       this.NamFasIknVar = faArrowDown
       this.NamAryVar.sort()
@@ -63,7 +63,7 @@ export class ListCrudKomComponent implements OnInit
     else
     {
       this.NamFasIknVar = faArrowUp
-      this.NamAryVar.sort((a,b) => b.localeCompare(a))
+      this.NamAryVar.sort((a, b) => b.localeCompare(a))
     }
   }
 

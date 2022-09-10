@@ -6,30 +6,22 @@
 </form>
 
 
-<cart-item-kom *ngFor = "let CartVar of CartAyVar;let IdxVar=index"
-[title] = "CartVar.TtlVak"
-[detail]="CartVar.DtlVak"
-[cost] = "CartVar.CstVak"
-(UpdQtyVaf) = "UpdTotQtyVafFnc($event)"
-(UpdTotVaf) = "UpdTotVafFnc($event)"
-(DelVaf)="DelVafFnc(IdxVar)"
-(UpdVaf)="UpdVafFnc(IdxVar)"></cart-item-kom>
+<cart-item-kom *ngFor="let CartVar of CartAyVar;let IdxVar=index" [title]="CartVar.TtlVak" [detail]="CartVar.DtlVak"
+    [cost]="CartVar.CstVak" (UpdQtyVaf)="UpdTotQtyVafFnc($event)" (UpdTotVaf)="UpdTotVafFnc($event)"
+    (DelVaf)="DelVafFnc(IdxVar)" (UpdVaf)="UpdVafFnc(IdxVar)">
+</cart-item-kom>
 
 
-<div class="DsplyFlxCls" >
-
+<div class="DsplyFlxCls">
     <p>
-        Total Quantity :    {{TotQtyVar}}
+        Total Quantity : {{TotQtyVar}}
     </p>
-
     <p>
         Total Unit Cost : {{TotUC}}
     </p>
-
     <p>
         Total Cost : {{TotCost}}
     </p>
-
 </div>
 
 <!-- <list-crud-kom></list-crud-kom> -->

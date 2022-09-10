@@ -1,17 +1,37 @@
-<h1>{{ProdSvcVar.TtlVar}}</h1> &nbsp;
-<button class="btn btn-success" (click)="this.PopMdlVap.open(PopDivNgsUid)">Add Products</button>
+<h1>{{ProdSvcVar.TtlVar}}</h1>
+
+<div class="row">
+    <div class="col-4">
+        <button class="btn btn-success" (click)="AddBtnFnc(PopDivNgsUid)">Add Products</button>
+    </div>
+
+    <div class="col-4">
+        <input type="search" placeholder="Search" [(ngModel)]="SrchIptVar">
+        <button class="btn btn-primary mb-2" (click)="SearchBtnFnc(SrchIptVar)">
+            <i class="fas fa-search"></i>
+        </button>
+
+    </div>
+
+    <div class="col-4">
+        <h4>Total Products : {{ProdSvcVar.PrdAryVar.length}}</h4>
+    </div>
+</div>
 
 <div class="SprPrdDivCls">
-    <div *ngFor="let ProdItmVar of ProdSvcVar.PrdAryVar">
+    <div *ngFor="let ProdItmVar of ProdSvcVar.PrdAryVar;let IdxVar=index">
         <a [routerLink]="getPathFromTtlFnc(ProdItmVar.TtlVak)" routerLinkActive="active">
             <img src="assets/imgFdr/benq.jpg" width="200px">
             <h3>{{ProdItmVar.TtlVak}}</h3>
             <p>{{ProdItmVar.DtlVak}}</p>
-            <p>{{ProdItmVar.AmtVak}}</p>
+            <p>{{ProdItmVar.CstVak}}</p>
         </a>
+
+        <button (click)="UpdBtnFnc(PopDivNgsUid,IdxVar)">Update</button>&nbsp;
+        <button (click)="DelPrdFnc(ProdItmVar.UidVak)">Delete</button>
     </div>
 </div>
 
 <ng-template #PopDivNgsUid let-modal>
-    <app-prod-add-kom [PopMdlVav]="modal"></app-prod-add-kom>
+    <app-prod-add-kom [PopMdlVav]="modal" [EdtIdxVak]="EdtIdxVar"></app-prod-add-kom>
 </ng-template>

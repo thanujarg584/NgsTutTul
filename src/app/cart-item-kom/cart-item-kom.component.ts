@@ -9,9 +9,9 @@ import { faHeart as fasHeart } from '@fortawesome/free-solid-svg-icons';
 })
 export class CartItemKomComponent implements OnInit
 {
-  @Input('title') TtlVar=""
-  @Input('detail') DtlVar=""
-  @Input('cost') CstVar=0
+  @Input('title') TtlVar = ""
+  @Input('detail') DtlVar = ""
+  @Input('cost') CstVar = 0
 
   @Output() UpdQtyVaf = new EventEmitter()
   @Output() UpdTotVaf = new EventEmitter()
@@ -20,28 +20,20 @@ export class CartItemKomComponent implements OnInit
   @Output() DelVaf = new EventEmitter()
   @Output() UpdVaf = new EventEmitter()
 
-
-	NamFasIknVar = farHeart;
+  NamFasIknVar = farHeart;
   QtyVar = 1
-  
+
   ToggleLike()
   {
-    if(this.NamFasIknVar==farHeart)
+    if (this.NamFasIknVar == farHeart)
       this.NamFasIknVar = fasHeart
     else
       this.NamFasIknVar = farHeart
   }
 
-  // UpdQtyFnc()
-  // {
-  //   this.QtyVar +=1
-  // }
-
-      
-  UpdQtyFnc(PassVar:number)
+  UpdQtyFnc(PassVar: number)
   {
-      
-    if ((PassVar ==1 && this.QtyVar < 10) || (PassVar == -1 && this.QtyVar > 1))
+    if ((PassVar == 1 && this.QtyVar < 10) || (PassVar == -1 && this.QtyVar > 1))
     {
       this.QtyVar += PassVar
       this.UpdQtyVaf.emit(PassVar)
@@ -49,12 +41,13 @@ export class CartItemKomComponent implements OnInit
     }
   }
 
-
-  DelFnc(){
+  DelFnc()
+  {
     this.DelVaf.emit()
   }
 
-  UpdFnc(){
+  UpdFnc()
+  {
     this.UpdVaf.emit()
   }
 

@@ -9,7 +9,7 @@ import { Component, ViewChild } from '@angular/core';
 })
 export class AppComponent
 {
-  @ViewChild('AudNgsUid') AudNgsVar:any
+  @ViewChild('AudNgsUid') AudNgsVar: any
   NamIptVar = ""
   // AgeVar = 19
   // BulVar = true

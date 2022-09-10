@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ProdSvc } from '../prod-svc.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
+import { ProdSvc } from '../prod-svc.service';
 
 @Component({
   selector: 'app-prod-add-kom',
@@ -10,23 +11,72 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 export class ProdAddKomComponent implements OnInit
 {
   @Input() PopMdlVav: any
+  @Input('EdtIdxVak') EdtIdxvar = -1
 
   AddPrdVar = {
+    "UidVak": 0,
     "TtlVak": "",
     "DtlVak": "",
-    "AmtVak": 0
+    "CstVak": 0
   }
 
-  AddItmFnc()
-  {
-    this.ProdSvcVar.PrdAryVar.push(this.AddPrdVar)
-    this.PopMdlVav.close()
+  AssignPrdVar={
+    "UidVak": 0,
+    "TtlVak": "",
+    "DtlVak": "",
+    "CstVak": 0
   }
 
   constructor(public ProdSvcVar: ProdSvc, public PopMdlVap: NgbModal) { }
 
   ngOnInit(): void
   {
+    if (this.EdtIdxvar != -1)
+    {
+      this.AssignPrdVar.TtlVak=this.ProdSvcVar.PrdAryVar[this.EdtIdxvar].TtlVak
+      this.AssignPrdVar.DtlVak=this.ProdSvcVar.PrdAryVar[this.EdtIdxvar].DtlVak
+      this.AssignPrdVar.CstVak=this.ProdSvcVar.PrdAryVar[this.EdtIdxvar].CstVak
+    }
+  }
+
+  AssignItmFnc()
+  {
+    this.AddPrdVar = this.AssignPrdVar
+  }
+
+  AddItmFnc()
+  {
+    this.AssignItmFnc()
+    this.ProdSvcVar.AddProdFnc(this.AddPrdVar)
+    this.PopMdlVav.close()
+    this.MtyPrdFromFnc()
+  }
+
+  UpdPrdFnc()
+  {
+    this.AssignItmFnc()
+    this.ProdSvcVar.UpdPrdFnc(this.AddPrdVar, this.EdtIdxvar)
+    this.PopMdlVav.close()
+    this.MtyPrdFromFnc()
+  }
+
+  SearchBtnFnc(SrchIptVar: any)
+  {
+    this.ProdSvcVar.PrdAryVar.filter(ItmVar =>
+    {
+      ItmVar.TtlVak.includes(SrchIptVar)
+    })
+    console.log(this.ProdSvcVar.PrdAryVar)
+  }
+
+  MtyPrdFromFnc()
+  {
+    this.AddPrdVar = {
+      "UidVak": 0,
+      "TtlVak": "",
+      "DtlVak": "",
+      "CstVak": 0
+    }
   }
 
 }

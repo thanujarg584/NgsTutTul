@@ -43,10 +43,10 @@
 <table border="5" cellpadding="10px">
   <tr>
     <th>Sl.No</th>
-    <th><a (click) = "SortByName()">Name</a></th>
-    <th><a (click) = "SortByPlan()">Plan</a></th>
-    <th><a (click) = "SortByCost()">Cost</a></th>
-    <th><a (click) = "SortByYear()">Year</a></th>
+    <th><a (click)="SortByName()">Name</a></th>
+    <th><a (click)="SortByPlan()">Plan</a></th>
+    <th><a (click)="SortByCost()">Cost</a></th>
+    <th><a (click)="SortByYear()">Year</a></th>
   </tr>
   <tr *ngFor="let DreamVar of DreamAryVar; let idxVar = index ">
     <td>{{idxVar+1}}</td>
@@ -67,8 +67,8 @@
   <div *ngSwitchDefault> Donno</div>
 </ng-container>
 
-<button (click) = NamBtnFnc()>Dare to Click me!!</button>
-<button (dblclick) = NamDblBtnFnc()>Dare to Click me!!</button>
+<button (click)=NamBtnFnc()>Dare to Click me!!</button>
+<button (dblclick)=NamDblBtnFnc()>Dare to Click me!!</button>
 
 
 <!-- <h1 [ngClass]="{RedCls:BulVar}">
@@ -156,7 +156,7 @@
   (IncLykVaf) = "InclykVafFnc($event)"
   (DecLykVaf) = "DeclykVafFnc($event)"></news>
 <news [topicVar] = "'Education'" 
-  [detailVar]="'Akash is the new Topper'"
+  [detailVar]="'Shabad is the new Topper'"
   (IncLykVaf) = "InclykVafFnc($event)"
   (DecLykVaf) = "DeclykVafFnc($event)"></news>
 <news [topicVar] = "'Sports'" 
